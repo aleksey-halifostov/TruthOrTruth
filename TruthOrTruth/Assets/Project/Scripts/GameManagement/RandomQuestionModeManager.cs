@@ -7,8 +7,10 @@ namespace TruthOrTruth.GameManagement
         public override void TransferControl()
         {
             _injector.UIManager.HideMainMenu();
-            _injector.Swapper.SetTextSource(new QuestionTextSource());
-            _injector.Card.SetActive(true);
+            _injector.UIManager.SetupButtons(SimpleOnMainMenuButtonClicked);
+            ITextSource textSource = new QuestionTextSource();
+            _injector.CardController.SetTextSource(textSource);
+            SimpleOnGameStarted();
         }
     }
 }

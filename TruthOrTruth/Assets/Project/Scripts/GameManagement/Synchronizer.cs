@@ -12,12 +12,18 @@ namespace TruthOrTruth.GameManagement
 
         private void OnEnable()
         {
-            CardSwapper.OnCardUpdating += UpdateAdditionalText;
+            CardController.OnCardUpdating += UpdateAdditionalText;
         }
 
         private void OnDisable()
         {
-            CardSwapper.OnCardUpdating -= UpdateAdditionalText;
+            CardController.OnCardUpdating -= UpdateAdditionalText;
+        }
+
+        private void OnDestroy()
+        {
+            if ( _text != null )
+                _text.gameObject.SetActive(false);
         }
 
         private void UpdateAdditionalText()

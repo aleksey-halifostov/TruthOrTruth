@@ -30,10 +30,10 @@ namespace TruthOrTruth.GameManagement
 
         public void SetMode(int mode)
         {
-            if (gameObject.TryGetComponent<IGameManager>(out IGameManager component))
+            if (gameObject.TryGetComponent<IModeManager>(out IModeManager component))
                 Destroy((MonoBehaviour)component);
 
-            IGameManager manager = gameObject.AddComponent(GetManagerType((GameMode)mode)).GetComponent<IGameManager>();
+            IModeManager manager = gameObject.AddComponent(GetManagerType((GameMode)mode)).GetComponent<IModeManager>();
             manager.Init(_injector);
             manager.TransferControl();
         }

@@ -2,16 +2,16 @@ using UnityEngine;
 
 namespace TruthOrTruth.PlayerControls
 {
-    [RequireComponent(typeof(CardSwapper))]
+    [RequireComponent(typeof(CardController))]
     public class PlayerInput : MonoBehaviour
     {
         private GameActions _input;
-        private CardSwapper _swapper;
+        private CardController _swapper;
 
         private void Awake()
         {
             _input = new GameActions();
-            _swapper = GetComponent<CardSwapper>();
+            _swapper = GetComponent<CardController>();
         }
 
         private void OnEnable()

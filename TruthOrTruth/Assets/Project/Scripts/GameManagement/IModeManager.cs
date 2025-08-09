@@ -1,6 +1,6 @@
 namespace TruthOrTruth.GameManagement
 {
-    public interface IGameManager
+    public interface IModeManager
     {
         public void Init(Injector injector);
         public void TransferControl();

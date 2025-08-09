@@ -6,7 +6,7 @@ using TruthOrTruth.TextSource;
 
 namespace TruthOrTruth.PlayerControls 
 {
-    public class CardSwapper : MonoBehaviour
+    public class CardController : MonoBehaviour
     {
         private bool _isFaced = false;
         private ITextSource _textSource;
@@ -21,7 +21,15 @@ namespace TruthOrTruth.PlayerControls
 
         public void SetTextSource(ITextSource textSource)
         {
+            if (textSource == null)
+                throw new System.ArgumentNullException(nameof(textSource));
+
             _textSource = textSource;
+        }
+
+        public void ResetCardRotation()
+        {
+            _card.rotation = _simpleRotation;
         }
 
         public void SwapCard()
